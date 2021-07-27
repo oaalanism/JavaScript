@@ -1,0 +1,42 @@
+<html>
+    <head> 
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="css/convertidor.css">
+        <title> Conversor </title>
+        <script type="text/javascript" src="js/convertidor.js"></script>
+    </head>
+    <body>
+        <div class="convertidor">
+            
+            <div class="div-importe"> 
+                <div class="div-importe-top">
+                    <label class="label-importe"> Importe: </label> 
+                </div>
+                <div class="div-importe-bottom">
+                    <input id = "importe" class="importe">
+                    <div class="voltear" onclick="voltear()"> 
+                        <div class="flecha-bucle cuerpo"></div>
+                        <div class="flecha-bucle cabeza superior"></div>
+                        <div class="flecha-bucle cabeza inferior"></div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <div class="info-divisas">
+                <div id="div-divisa-origen" class="info-divisa"> 
+                    <img id="img-divisa-origen" class="logo-divisa" src="image/MXN.png"> 
+                    <label id="label-divisa-origen" name="MXN" class="name-divisa"> MXN / Peso Mexicano </label> 
+                </div> 
+                
+                <div id="div-divisa-tranformar" class="info-divisa"> 
+                    <img id="img-divisa-transformar" class="logo-divisa" src="image/EUR.png"> 
+                    <label id="label-divisa-transformar" name="EUR" class="name-divisa"> EUR / Euro </label>  
+                </div> 
+            </div>
+            <div class="div-convertir"> <button class="button-convert" onclick="convert()"> convertir </button> </div>
+            <div class="div-resultado">
+                <label id = "resultado" class="label-resultado"> 0 MXN = 0 EUR</label>
+            </div>
+        </div>
+    </body>
+</html>
