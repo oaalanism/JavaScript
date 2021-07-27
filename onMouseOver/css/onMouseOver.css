@@ -1,0 +1,21 @@
+.cuadro{
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+}
+
+.cyan{
+  background-color: cyan;
+}
+
+.rojo{
+  background-color: red;
+}
+
+.amarillo{
+  background-color: yellow;
+}
+
+.verde{
+  background-color: green;
+}
