@@ -1,23 +1,17 @@
-const ep = 23.61;
-
 function convert(){
     var origen = document.getElementById("label-divisa-origen").getAttribute("name");
+    var transformar = document.getElementById("label-divisa-transformar").getAttribute("name");
     var importe = document.getElementById("importe").value;
+    var valorOrigen = document.getElementById("valor-divisa-origen").getAttribute("value");
+    var valorTransformar = document.getElementById("valor-divisa-transformar").getAttribute("value");
     var value;
     var resultado;
 
     if(!isNaN(importe))
     {
-        if(origen == "MXN")
-        {
-            value = importe/ep;
-            resultado = importe + " MXN = " + value.toFixed(4) + " EUR";
-        } 
-        else
-        {
-            value = importe*ep;
-            resultado = importe + " EUR = " + value.toFixed(4) + " MXN";
-        } 
+        const tasa = valorTransformar/valorOrigen;
+        value = importe*tasa;
+        resultado = importe + " "+ origen +" = " + value.toFixed(4) + " "+transformar;
         document.getElementById("resultado").innerHTML = resultado;
     }
     else
@@ -27,22 +21,30 @@ function convert(){
 }
 
 function voltear(){
-    var img_divisa_origen = document.getElementById("img-divisa-origen");
-    var img_divisa_transformar = document.getElementById("img-divisa-transformar");
-    var label_divisa_origen = document.getElementById("label-divisa-origen");
-    var label_divisa_transformar = document.getElementById("label-divisa-transformar");
 
-    var img = document.createElement("img");
-    var label = document.createElement("label");
-    img.setAttribute("src", img_divisa_origen.getAttribute("src"));
-    label.setAttribute("name", label_divisa_origen.getAttribute("name"));
-    label.innerHTML = label_divisa_origen.textContent;
+    var nameOrigen = document.getElementById("label-divisa-origen").getAttribute("name");
+    var nameTransformar = document.getElementById("label-divisa-transformar").getAttribute("name");
+
+    var origNone = document.getElementById('div-divisa-origen').querySelector('.select-wrapper .options .option.none');
+    var origSelected = document.getElementById('div-divisa-origen').querySelector('.select-wrapper .options .option.selected');
+    origNone.classList.remove('none');
+    origNone.classList.add('selected');
+    origSelected.classList.remove('selected');
+    origSelected.classList.add('none');
     
-    img_divisa_origen.setAttribute("src", img_divisa_transformar.getAttribute("src"));
-    label_divisa_origen.setAttribute("name", label_divisa_transformar.getAttribute("name"));
-    label_divisa_origen.innerHTML = label_divisa_transformar.textContent;
+    var transNone = document.getElementById('div-divisa-tranformar').querySelector('.select-wrapper .options .option.none');
+    var transSelected = document.getElementById('div-divisa-tranformar').querySelector('.select-wrapper .options .option.selected');
+    transNone.classList.remove('none');
+    transNone.classList.add('selected');
+    transSelected.classList.remove('selected');
+    transSelected.classList.add('none');
 
-    img_divisa_transformar.setAttribute("src", img.getAttribute("src"));
-    label_divisa_transformar.setAttribute("name", label.getAttribute("name"));
-    label_divisa_transformar.innerHTML = label.textContent;
+    document.getElementById('img-divisa-origen').setAttribute("src", "image/"+nameTransformar+".png");
+    document.getElementById('label-divisa-origen').setAttribute('name', nameTransformar);
+    document.getElementById('label-divisa-origen').innerHTML = transSelected.querySelector('.name-divisa').innerHTML;
+    document.getElementById('valor-divisa-origen').setAttribute("value", transSelected.querySelector('.valor-divisa').getAttribute("value"));
+    document.getElementById('img-divisa-transformar').setAttribute("src", "image/"+nameOrigen+".png");
+    document.getElementById('label-divisa-transformar').setAttribute('name', nameOrigen);
+    document.getElementById('label-divisa-transformar').innerHTML = origSelected.querySelector('.name-divisa').innerHTML;
+    document.getElementById('valor-divisa-transformar').setAttribute("value", origSelected.querySelector('.valor-divisa').getAttribute("value"));
 }

@@ -1,4 +1,19 @@
 <html>
+    <?php
+        $servername = "localhost";
+        $username = "oalanism";
+        $password = "0SkoM_bRM";
+        $dbname = "convertidor";
+
+        // Create connection
+        $conn = new mysqli($servername, $username, $password, $dbname);
+
+        // Check connection
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        echo "Connected successfully";
+    ?> 
     <head> 
         <meta charset="UTF-8">
         <title> Conversor </title>
@@ -35,7 +50,9 @@
                                 <div class="select-arrow"></div>
                             </div>
                             <div class="options">
-
+                                <?php 
+                                ?>
+                                
                             </div>
                         </div>
                     </div>

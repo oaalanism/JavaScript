@@ -77,7 +77,7 @@ hr{
 }
 
 .info-divisa{
-    height: 20px;
+    height: 22px;
     width: 70%;
     border-radius: 5px;
     display: inline-block;
@@ -127,4 +127,153 @@ hr{
 .label-resultado{
     text-align: center;
     color: #34495e;
+}
+
+.select-wrapper{
+    position: relative;
+    user-select: none;
+    width: 100%;
+}
+
+.select {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    border-width: 0 2px 0 2px;
+}
+
+.info-divisa .select-wrapper .options{
+    width: 100%;
+    left: -0.7px;
+}
+
+.options {
+    position: absolute;
+    display: block;
+    top: 100%;
+    left: 0;
+    right: 0;
+    border-top: 0;
+    background: #fff;
+    transition: all 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    z-index: 2;
+    border-right: 1px solid #95a5a6;
+    border-bottom: 1px solid #95a5a6;
+    border-left: 1px solid #95a5a6;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+
+/*.options::before{
+    content: "";
+    position: absolute;
+    width: 1px;
+    height: 100%;
+    left: 0px;
+    background-color: #95a5a6;
+}*/
+
+.select.open .options {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: all;
+}
+
+.option-blank{
+    width: 100%;
+    height: 2px;
+    position: relative;
+    display: flex;
+}
+
+.option {
+    position: relative;
+    display: flex;
+    color: #3b3b3b;
+    cursor: pointer;
+    width: 100%;
+    /*padding: 0 22px 0 22px;
+    font-size: 22px;
+    font-weight: 300;
+    
+    line-height: 60px;
+    */
+    transition: all 0.5s;
+}
+
+.option-blank-bottom{
+    width: 100%;
+    height: 2px;
+    position: relative;
+    display: flex;
+}
+
+.option:hover {
+    cursor: pointer;
+    background-color: #b2b2b2;
+}
+.option.selected {
+    color: #ffffff;
+    background-color: #305c91;
+}
+
+.none{
+    display: none;
+}
+
+/*
+.select__trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 22px;
+    font-size: 20px;
+    font-weight: 300;
+    color: #3b3b3b;
+    height: 60px;
+    line-height: 60px;
+    background: #ffffff;
+    cursor: pointer;
+    border-width: 2px 0 2px 0;
+    border-style: solid;
+    border-color: #394a6d;
+}
+
+*/
+.select-arrow{
+    float: right;
+    width: 10px;
+    height: 10px;
+    margin-top: 7px;
+    margin-right: 5%;
+}
+
+.select-arrow::before, .select-arrow::after{
+    content: "";
+    position: absolute;
+    width: 0.15rem;
+    height: 8px;
+    transition: all 0.5s;
+}
+
+
+.select-arrow::before {
+    right: 18px;
+    transform: rotate(-45deg);
+    background-color: #394a6d;
+}
+.select-arrow::after {
+    transform: rotate(45deg);
+    background-color: #394a6d;
+}
+
+.open .select-arrow::before {
+    transform: rotate(45deg);
+}
+.open .select-arrow::after {
+    transform: rotate(-45deg);
 }
